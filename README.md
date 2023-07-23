@@ -5,3 +5,4 @@
 #### typescript
 #### nextjs
 #### prisma
+#### sqlite
