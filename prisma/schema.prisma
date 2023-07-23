@@ -7,5 +7,13 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db" // veya .env ile birlikte kullan
+}
+
+model Todo {
+  id String @id @default(uuid())
+  title String
+  done Boolean @default(false)
+  createdDate DateTime @default(now())
+  updateAt DateTime @updatedAt
 }
