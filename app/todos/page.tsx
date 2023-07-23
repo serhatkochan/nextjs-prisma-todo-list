@@ -27,6 +27,7 @@ const deleteTodo = async (id) => {
 
 const Page = async () => {
     const todos = await handleGetTodos(); // her şeyi döndür
+
     return (
         <div className="p-6 flex flex-col gap-6">
             <Link
@@ -39,7 +40,8 @@ const Page = async () => {
                 {todos.map((todo) => (
                     <TodoItem
                         key={todo.id}
-                        {...todo} toggleTodo={toggleTodo}
+                        {...todo}
+                        toggleTodo={toggleTodo}
                         deleteTodo={deleteTodo}
                     />
                 ))}
