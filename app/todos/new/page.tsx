@@ -1,5 +1,5 @@
-import {prisma} from "@/app/db";
 import {redirect} from "next/navigation";
+import {prisma} from "@/app/db";
 
 const createTodo = async (data: FormData) => {
     "use server"; // browser yerine server tarafında çalıştırabilmek için "use server" eklememiz gerekiyor

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Link from "next/link";
 
 import {prisma} from "@/app/db";
@@ -18,6 +18,13 @@ const toggleTodo = async (id: string, done: boolean) => {
     })
 }
 
+const deleteTodo = async (id) => {
+    "use server";
+    await prisma.todo.delete({
+        where: {id}
+    })
+}
+
 const Page = async () => {
     const todos = await handleGetTodos(); // her şeyi döndür
     return (
@@ -30,7 +37,7 @@ const Page = async () => {
             </Link>
             <ul className="flex flex-col gap-4">
                 {todos.map((todo) => (
-                    <TodoItem {...todo} toggleTodo={toggleTodo} />
+                    <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
                 ))}
             </ul>
         </div>
