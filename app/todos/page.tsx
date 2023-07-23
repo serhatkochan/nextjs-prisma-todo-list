@@ -37,7 +37,11 @@ const Page = async () => {
             </Link>
             <ul className="flex flex-col gap-4">
                 {todos.map((todo) => (
-                    <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+                    <TodoItem
+                        key={todo.id}
+                        {...todo} toggleTodo={toggleTodo}
+                        deleteTodo={deleteTodo}
+                    />
                 ))}
             </ul>
         </div>
