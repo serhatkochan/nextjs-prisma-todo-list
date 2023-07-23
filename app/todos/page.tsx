@@ -1,9 +1,13 @@
 import React from 'react';
 import {prisma} from "@/app/db";
 
-const Page = async () => {
-    const todos = await prisma.todo.findMany(); // her şeyi döndür
+const handleGetTodos = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2000)); // 2sn elle bekleticez
+    return prisma.todo.findMany();
+}
 
+const Page = async () => {
+    const todos = await handleGetTodos(); // her şeyi döndür
     return (
         <ul>
             {todos.map((todo) => (
