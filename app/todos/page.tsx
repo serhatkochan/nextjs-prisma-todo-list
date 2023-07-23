@@ -1,6 +1,8 @@
 import React from 'react';
+import {prisma} from "@/app/db";
 
-const Page = () => {
+const Page = async () => {
+    const todos = await prisma.todo.findMany(); // her şeyi döndür
     return (
         <div>
             Todos Page
